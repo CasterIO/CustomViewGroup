@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Custom ViewGroup</string>
+    <string name="title_custom_view_group_list">Custom ViewGroup List Item</string>
+    
+    <!-- Constructor example -->
+    <string name="message">Hello, Caster.IO!</string>
+
+    <!-- List item example strings -->
+    <string name="list_item_01">Melancholic</string>
+    <string name="list_item_02">Phlegmatic</string>
+    <string name="list_item_03">Sanguine</string>
+    <string name="list_item_04">Choleric</string>
+
+    <string name="list_item_01_desc">Earth. Black. Leonardo. Fred. Jerry. Paul. Reed.</string>
+    <string name="list_item_02_desc">Water. Green. Donatello. Velma. George. George. Sue.</string>
+    <string name="list_item_03_desc">Air. Red. Raphael. Daphne. Elaine. John. Ben.</string>
+    <string name="list_item_04_desc">Fire. Yellow. Michelangelo. Shaggy. Kramer. Ringo. Johnny.</string>
+
+</resources>
