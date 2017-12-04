@@ -53,7 +53,34 @@ public class CustomListItem extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        measureChildWithMargins(iconView, widthMeasureSpec, 0, heightMeasureSpec, 0);
 
+        MarginLayoutParams lp = (MarginLayoutParams) iconView.getLayoutParams();
+        int iconWidthUsed = iconView.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+        int iconHeightUsed = iconView.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
+
+        measureChildWithMargins(titleTextView, widthMeasureSpec, iconWidthUsed, heightMeasureSpec, 0);
+
+        lp = (MarginLayoutParams) titleTextView.getLayoutParams();
+        int titleWidthUsed = titleTextView.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+        int titleHeightUsed = titleTextView.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
+
+        measureChildWithMargins(subtitleTextView, widthMeasureSpec, iconWidthUsed, heightMeasureSpec, titleHeightUsed);
+
+        lp = (MarginLayoutParams) subtitleTextView.getLayoutParams();
+        int subtitleWidthUsed = subtitleTextView.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+        int subtitleHeightUsed = subtitleTextView.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
+
+        // At this point all the child views have been measured.
+
+        // Now calculate the measured width and height of this CustomListItem.
+
+        int width = iconWidthUsed + Math.max(titleWidthUsed, subtitleWidthUsed) +
+            getPaddingLeft() + getPaddingRight();
+        int height = Math.max(iconHeightUsed, titleHeightUsed + subtitleHeightUsed) +
+            getPaddingTop() + getPaddingBottom();
+
+        setMeasuredDimension(width, height);
     }
 
     @Override
