@@ -85,6 +85,32 @@ public class CustomListItem extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        final MarginLayoutParams iconLayoutParams = (MarginLayoutParams) iconView.getLayoutParams();
+        int left = getPaddingLeft() + iconLayoutParams.leftMargin;
+        int top = getPaddingTop() + iconLayoutParams.topMargin;
+        int right = left + iconView.getMeasuredWidth();
+        int bottom = top + iconView.getMeasuredHeight();
 
+        iconView.layout(left, top, right, bottom);
+
+        final int iconRightPlusMargin = right + iconLayoutParams.rightMargin;
+
+        final MarginLayoutParams titleLayoutParams = (MarginLayoutParams) titleTextView.getLayoutParams();
+        left = iconRightPlusMargin + titleLayoutParams.leftMargin;
+        top = getPaddingTop() + titleLayoutParams.topMargin;
+        right = left + titleTextView.getMeasuredWidth();
+        bottom = top + titleTextView.getMeasuredHeight();
+
+        titleTextView.layout(left, top, right, bottom);
+
+        final int titleBottomPlusMargin = bottom + titleLayoutParams.bottomMargin;
+
+        final MarginLayoutParams subtitleLayoutParams = (MarginLayoutParams) subtitleTextView.getLayoutParams();
+        left = iconRightPlusMargin + subtitleLayoutParams.leftMargin;
+        top = titleBottomPlusMargin + subtitleLayoutParams.topMargin;
+        right = left + subtitleTextView.getMeasuredWidth();
+        bottom = top + subtitleTextView.getMeasuredHeight();
+
+        subtitleTextView.layout(left, top, right, bottom);
     }
 }
