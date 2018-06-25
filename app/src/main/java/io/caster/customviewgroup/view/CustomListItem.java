@@ -80,7 +80,7 @@ public class CustomListItem extends ViewGroup {
         int height = Math.max(iconHeightUsed, titleHeightUsed + subtitleHeightUsed) +
             getPaddingTop() + getPaddingBottom();
 
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(resolveSize(width, widthMeasureSpec), resolveSize(height, heightMeasureSpec));
     }
 
     @Override
