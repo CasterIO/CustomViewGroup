@@ -17,61 +17,26 @@
 package io.caster.example;
 
 import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
+
 import io.caster.customviewgroup.R;
 
 /**
  * Enum used to populate example {@link android.support.v7.widget.RecyclerView.Recycler}.
  */
 public enum ListItem {
-    ITEM_01(R.id.list_item_01, R.drawable.ic_bubble_chart_black_48dp,
-        R.string.list_item_01, R.string.list_item_01_desc),
-    ITEM_02(R.id.list_item_02, R.drawable.ic_ac_unit_black_48dp,
-        R.string.list_item_02, R.string.list_item_02_desc),
-    ITEM_03(R.id.list_item_03, R.drawable.ic_spa_black_48dp,
-        R.string.list_item_03, R.string.list_item_03_desc),
-    ITEM_04(R.id.list_item_04, R.drawable.ic_whatshot_black_48dp,
-        R.string.list_item_04, R.string.list_item_04_desc);
+    ITEM_01(R.drawable.ic_bubble_chart_black_48dp, R.string.list_item_01, R.string.list_item_01_desc),
+    ITEM_02(R.drawable.ic_ac_unit_black_48dp, R.string.list_item_02, R.string.list_item_02_desc),
+    ITEM_03(R.drawable.ic_spa_black_48dp, R.string.list_item_03, R.string.list_item_03_desc),
+    ITEM_04(R.drawable.ic_whatshot_black_48dp, R.string.list_item_04, R.string.list_item_04_desc);
 
-    private static final ListItem[] LIST_ITEMS_ALL = {
-        ITEM_01,
-        ITEM_02,
-        ITEM_03,
-        ITEM_04
-    };
-
-    //
-    // Fields
-    //
-
-    public final int resId;
     public final int iconResId;
-    public final int stringResId;
+    public final int titleResId;
     public final int descResId;
 
-    //
-    // Constructors
-    //
-
-    ListItem(@IdRes int resId, @DrawableRes int iconResId, @StringRes int stringResId, @StringRes int descResId) {
-        this.resId = resId;
+    ListItem(@DrawableRes int iconResId, @StringRes int titleResId, @StringRes int descResId) {
         this.iconResId = iconResId;
-        this.stringResId = stringResId;
+        this.titleResId = titleResId;
         this.descResId = descResId;
-    }
-
-    //
-    // Example list helpers
-    //
-
-    public static int getItemCount() {
-        return LIST_ITEMS_ALL.length;
-    }
-
-    public static ListItem getItem(int position) {
-        return position >= 0 || position < LIST_ITEMS_ALL.length
-            ? LIST_ITEMS_ALL[position]
-            : ITEM_01;
     }
 }
